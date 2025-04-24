@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - BeautySpa Skincare Booking</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary {
+            background-color: #98D7C2;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #6AB7A8;
+        }
+        
+        .btn-outline {
+            border: 1px solid #98D7C2;
+            color: #98D7C2;
+        }
+        
+        .btn-outline:hover {
+            background-color: #98D7C2;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <nav class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="demo.html" class="flex items-center">
+                    <span class="text-2xl font-serif font-bold text-teal-600">Beauty</span>
+                    <span class="text-2xl font-serif font-bold text-pink-400">Spa</span>
+                </a>
+
+                <!-- Navigation -->
+                <div class="flex items-center space-x-4">
+                    <a href="demo.html" class="text-gray-700 hover:text-teal-500 px-3 py-2">Home</a>
+                    <a href="demo.html#services" class="text-gray-700 hover:text-teal-500 px-3 py-2">Services</a>
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Register Form Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-md mx-auto bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-3xl font-serif font-bold text-gray-800 mb-6 text-center">Đăng ký</h2>
+
+                <!-- Alert for errors and success -->
+                <div id="error-message" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4 hidden">
+                    <p id="error-text"></p>
+                </div>
+
+                <div id="success-message" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4 hidden">
+                    <p id="success-text"></p>
+                </div>
+
+                <form id="register-form">
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                        <input type="text" id="fullName" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-200 focus:border-teal-400" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" id="email" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-200 focus:border-teal-400" placeholder="Enter your email" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+                        <input type="text" id="username" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-200 focus:border-teal-400" placeholder="Choose a username" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                        <input type="password" id="password" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-200 focus:border-teal-400" placeholder="Choose a password" required>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+                        <input type="password" id="confirmPassword" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-200 focus:border-teal-400" placeholder="Confirm your password" required>
+                    </div>
+                    <div class="mb-6">
+                        <button type="submit" class="w-full btn btn-primary py-2 text-lg font-medium">
+                            Register
+                        </button>
+                    </div>
+                    <p class="text-center text-gray-600">
+                        Already have an account? <a href="login.html" class="text-teal-600 hover:underline">Đăng NhậpNhập</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-auto">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2023 BeautySpa. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize users in localStorage if they don't exist
+            if (!localStorage.getItem('users')) {
+                const defaultUsers = [{
+                    username: 'admin',
+                    password: 'admin123',
+                    fullName: 'Admin User',
+                    email: 'admin@beautyspa.com',
+                    role: 'ROLE_ADMIN'
+                }, {
+                    username: 'user',
+                    password: 'user123',
+                    fullName: 'Regular User',
+                    email: 'user@beautyspa.com',
+                    role: 'ROLE_USER'
+                }];
+                localStorage.setItem('users', JSON.stringify(defaultUsers));
+            }
+
+            // Register form submission
+            const registerForm = document.getElementById('register-form');
+            const errorMessage = document.getElementById('error-message');
+            const errorText = document.getElementById('error-text');
+            const successMessage = document.getElementById('success-message');
+            const successText = document.getElementById('success-text');
+
+            registerForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Hide any previous messages
+                errorMessage.classList.add('hidden');
+                successMessage.classList.add('hidden');
+
+                // Get form values
+                const fullName = document.getElementById('fullName').value;
+                const email = document.getElementById('email').value;
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+
+                // Validate form
+                if (password !== confirmPassword) {
+                    errorText.textContent = 'Passwords do not match';
+                    errorMessage.classList.remove('hidden');
+                    return;
+                }
+
+                // Get existing users
+                const users = JSON.parse(localStorage.getItem('users') || '[]');
+
+                // Check if username or email already exists
+                if (users.some(u => u.username === username)) {
+                    errorText.textContent = 'Username already exists';
+                    errorMessage.classList.remove('hidden');
+                    return;
+                }
+
+                if (users.some(u => u.email === email)) {
+                    errorText.textContent = 'Email already exists';
+                    errorMessage.classList.remove('hidden');
+                    return;
+                }
+
+                // Create new user
+                const newUser = {
+                    username,
+                    password,
+                    fullName,
+                    email,
+                    role: 'ROLE_USER'
+                };
+
+                // Add to users array
+                users.push(newUser);
+                localStorage.setItem('users', JSON.stringify(users));
+
+                // Show success message
+                successText.textContent = 'Registration successful! Redirecting to login...';
+                successMessage.classList.remove('hidden');
+
+                // Clear form
+                registerForm.reset();
+
+                // Redirect to login page after a short delay
+                setTimeout(() => {
+                    window.location.href = 'login.html';
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+
+</html>

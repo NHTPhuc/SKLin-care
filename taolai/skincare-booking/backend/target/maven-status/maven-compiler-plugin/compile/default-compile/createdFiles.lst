@@ -1,0 +1,10 @@
+com\skincare\model\User$Role.class
+com\skincare\repository\AppointmentRepository.class
+com\skincare\controller\HomeController.class
+com\skincare\SkincareBookingApplication.class
+com\skincare\config\SecurityConfig.class
+com\skincare\model\Service.class
+com\skincare\model\Appointment.class
+com\skincare\repository\ServiceRepository.class
+com\skincare\model\Appointment$Status.class
+com\skincare\model\User.class
